@@ -1,6 +1,9 @@
-﻿namespace Choices
+﻿using System;
+
+namespace Choices
 {
-    class Choice
+    [Serializable]
+    public class Choice
     {
         protected string _name = "defaultchoice";
         public string _description = "defaultchoicedescription";

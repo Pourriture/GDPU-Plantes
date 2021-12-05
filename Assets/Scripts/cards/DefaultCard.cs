@@ -4,7 +4,7 @@ namespace Cards
 {
     class DefaultCard : Card
     {
-        public DefaultCard() : base(0)
+        public DefaultCard() : base(0,"defaultCard","defaultFamily",null)
         {
 
         }

@@ -1,6 +1,4 @@
-﻿
-
-namespace ClassCartes
+﻿namespace ClassCartes
 {
     class Plant
     {
