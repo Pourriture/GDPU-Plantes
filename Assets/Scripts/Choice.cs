@@ -5,14 +5,14 @@ namespace Choices
     [Serializable]
     public class Choice
     {
-        protected string _name = "defaultchoice";
-        public string _description = "defaultchoicedescription";
-        protected int _id = -1;
-        protected int _modLove = 0;
-        protected int _modHum = 0;
-        protected int _modAir = 0;
-        protected int _modSoil = 0;
-        protected bool _deleteOnPick = false;
+        private string _name = "defaultchoice";
+        private string _description = "defaultchoicedescription";
+        private int _id = -1;
+        private int _modLove = 0;
+        private int _modHum = 0;
+        private int _modAir = 0;
+        private int _modSoil = 0;
+        private bool _deleteOnPick = false;
         // Peut verouiller des cartes
         // Peut ajouter des cartes
 
@@ -26,9 +26,26 @@ namespace Choices
             return _deleteOnPick;
         }
 
-        public Choice (int id)
+        public Choice (int id, string name, string description, bool deleteOnPick, int modLove=0, int modHum=0, int modAir=0, int modSoil=0)
         {
             _id = id;
+            _name = name;
+            _description = description;
+            _deleteOnPick = deleteOnPick;
+            _modLove = modLove;
+            _modHum = modHum;
+            _modAir = modAir;
+            _modSoil = modSoil;
+        }
+
+        public override string ToString()
+        {
+            string idReadable = "wrong id!";
+            if (_id == 0) idReadable = "left";
+            if (_id == 1) idReadable = "right";
+            if (_id == 2) idReadable = "down";
+            if (_id == 3) idReadable = "up";
+            return "ID: " + _id + ", Direction " + idReadable + ", Name: " + _name + ", Description: " + _description + ", deleteOnPick: " + _deleteOnPick + ", modLove: " + _modLove + ", modHum: " + _modHum + ", modAir: " + _modAir + ", modSoil: " + _modSoil;
         }
 
     }

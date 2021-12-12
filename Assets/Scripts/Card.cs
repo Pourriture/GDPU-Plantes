@@ -1,36 +1,38 @@
-﻿using Choices;
+﻿using System.Collections.Generic;
+
+using Choices;
 
 namespace Cards
 {
     public class Card
     {
-        int _id = -1;
-        string _name = "defaultcard";
-        public string description = "defaultcarddescription";
-        string _family;      // Utiliser un ID avec des define pour améliorer les performances ?
-                            // familles de cartes débloquées
-        Choice[] choices;
+        private int _id = -1;
+        private string _name = "defaultcard"; //the interlocutor
+        private string _description = "defaultcarddescription"; //the description of the event
+        private string _family;      // Utiliser un ID avec des define pour améliorer les performances ?
+                                     // familles de cartes débloquées
 
-        public Card(int id, string name, string family, Choice[] choices)
+        List<Choice> _choices = new List<Choice>();
+
+        public Card(int id, string name, string description, string family, List<Choice> choices)
         {
             _id = id;
             _name = name;
+            _description = description;
             _family = family;
-            this.choices = choices;
-        }
-
-        public Card(int id, string name, string description, string family, Choice[] choices)
-        {
-            _id = id;
-            _name = name;
-            this.description = description;
-            _family = family;
-            this.choices = choices;
+            _choices = choices;
         }
 
         public override string ToString()
         {
-            return "ID: " + _id + ", Name: " + _name + ", Description: " + description + ", Family: " + _family + ", Choices: " + choices; //TODO print choices correctly
+            string choices = "\n";
+
+            for (int i = 0; i < _choices.Count; i++)
+            {
+                choices += "[" + _choices[i] + "]\n";
+            }
+
+            return "ID: " + _id + ", Name: " + _name + ", Description: \"" + _description + "\", Family: " + _family + ", Choices: " + choices; //TODO print choices correctly
         }
     }
 

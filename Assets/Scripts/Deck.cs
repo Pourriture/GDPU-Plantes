@@ -1,8 +1,6 @@
-﻿using Cards;
-
-namespace ClassCartes
+﻿namespace Cards.Decks
 {
-    class Deck
+    public class Deck
     {
         private string _name;
         private Card[] _cards;
